@@ -1,5 +1,6 @@
 import TradeHubLogo from '@/app/ui/tradehub-logo';
 import Link from 'next/link';
+import style from '@/app/ui/home.module.css';
 
 export default function Page() {
   return (
@@ -9,6 +10,7 @@ export default function Page() {
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row ">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-neutral-900 px-6 py-10 md:w-2/5 md:px-20">
+          <div className={style.circle} />
           <p className={`text-5xl text-white md:text-3xl md:leading-normal`}>
             <strong>Welcome to TradeHub!</strong>
           </p>
