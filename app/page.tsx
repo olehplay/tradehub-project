@@ -2,6 +2,7 @@ import TradeHubLogo from '@/app/ui/tradehub-logo';
 import Link from 'next/link';
 import style from '@/app/ui/home.module.css';
 import { rubik } from './ui/fonts';
+import Image from 'next/image';
 
 export default function Page() {
   return (
@@ -25,7 +26,20 @@ export default function Page() {
           </Link>
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Images go here */}
+          <Image
+            src="/hero-desktop.png"
+            width={1000}
+            height={686}
+            className="hidden md:block"
+            alt="Desktop App Logo"
+          />
+          <Image
+            src="/hero-mobile.png"
+            width={560}
+            height={620}
+            className="block md:hidden"
+            alt="Mobile App Logo"
+          />
         </div>
       </div>
     </main>
