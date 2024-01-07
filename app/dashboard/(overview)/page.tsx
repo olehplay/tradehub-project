@@ -2,12 +2,14 @@ import { Card } from '@/app/ui/dashboard/cards';
 import IncomeChart from '@/app/ui/dashboard/income-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { poppins } from '@/app/ui/fonts';
-import { fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
+import { fetchCardData } from '@/app/lib/data';
 import { Suspense } from 'react';
-import { IncomeChartSkeleton } from '@/app/ui/skeletons';
+import {
+  IncomeChartSkeleton,
+  LatestInvoicesSkeleton,
+} from '@/app/ui/skeletons';
 
 export default async function Page() {
-  const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfSellers,
     numberOfInvoices,
@@ -36,7 +38,9 @@ export default async function Page() {
         <Suspense fallback={<IncomeChartSkeleton />}>
           <IncomeChart />
         </Suspense>
-        <LatestInvoices latestInvoices={latestInvoices} />
+        <Suspense fallback={<LatestInvoicesSkeleton />}>
+          <LatestInvoices />
+        </Suspense>
       </div>
     </main>
   );
